@@ -19,8 +19,7 @@ class Router
                 break;
         }
 
-        return 
-        {
+        return {
             viewName,
             endpointName
         };
