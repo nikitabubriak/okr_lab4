@@ -37,22 +37,6 @@
     }
   ],
 
-  "orders": [],
-
-  "sliderData": 
-  [
-    {
-      "url": ""
-    }
-  ],
-
-  "infoPages": 
-  [
-    {
-      "url": "about",
-      "name": "About us",
-      "content": "Information ..."
-    }
-  ]
-
+  "orders": []
+  
 }
