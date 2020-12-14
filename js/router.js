@@ -7,12 +7,15 @@ class Router
 
         switch (window.location.hash.split('#')[1]) 
         {
-            case 'products':
-                viewName = 'productsPage';
-                endpointName = 'products';
-                break;
+            // case 'products':
+            //     viewName = 'productsPage';
+            //     endpointName = 'products';
+            //     break;
             
             default:
+                viewName = 'productsPage';
+                endpointName = 'products';
+                window.location.hash = '';
                 break;
         }
 
