@@ -4,7 +4,7 @@ class Client
     {
         return fetch
             (`         
-            http://my-json-server.typicode.com/nikitabubriak/okr_lab4/${endpoint}
+            https://my-json-server.typicode.com/nikitabubriak/okr_lab4/${endpoint}
             `)
             .then(response => response.json());
     }
