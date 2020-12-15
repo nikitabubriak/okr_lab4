@@ -7,22 +7,377 @@
     <title>lab4</title>
     <link rel = "stylesheet" href = "styles.css">
 
+    <!-- 
+
+    ~db.json
+
+    1. home page {offer, featured}
+        /
+    
+    2. offer page {detailed for each one}
+        /#offer/[url]
+    
+    3. catalog page {all products (> 16 pcs) divided with categories}
+        /#catalog
+    
+    4. category page {display for each (>3 pcs) category respective products}
+        /#catalog/[url]
+
+    5. product page {display an info page for each product}
+        /#product/[url]
+    
+    6. cart page
+        /#cart
+    
+    7. order submission page {with html5 input validation, stylized}
+        /#order (closed when cart is empty > forward to home)
+    
+    8. order status page
+        /#order/[id] (refresh > forward home)
+
+    routing 
+    {
+        ~loader animation while loading data from server
+        via window.location.hash
+        using direct link to the page
+        forwarding without reloading the entire page
+        invalid hash > forward to home
+    }
+    
+    save cart content to localstorage using only one key "cart",
+    with {<productID>:<count>, ...}
+    clear cart after order submission
+
+    the order button sends POST request with order details to the server
+    use the id from server response to forward to the order status
+    handle error response
+
+    ~modular code (ES6) /classes-services
+    ~media queries
+    no mistakes in the console while running
+    stable work in all browsers of latest version
+ -->
+
 </head>
 
 <body>
 
     <header>
-        <p>header</p>
+        <a id = "logo" href = "#">
+            <img src = "resources/logo.jpg" alt = "logo">
+        </a>
+
+        <div class = "search">
+            <input type = "text" placeholder = "Search">
+            <button>🔍</button>
+        </div>
+        
+        <nav class = "menu">
+            <ul class = "menu-list">
+                <li class = "menu-item">
+                    <a class = "menu-item-link" href = "/contacts">
+                        <span class = "menu-item-title">Contacts</span>
+                    </a>
+                </li>
+                <li class = "menu-item">
+                    <a class = "menu-item-link" href = "/help">
+                        <span class = "menu-item-title">Help</span>
+                    </a>
+                </li>
+                <li class = "menu-item">
+                    <a class = "menu-item-link" href = "/signup">
+                        <span class = "menu-item-title">Sign up</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <div id = "container">
-        <p>lab4</p>
+    <div class = "sidebar">
+        <nav class = "catalog">
+            <ul class = "catalog-list">
+
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#catalog">
+                        <span class = "catalog-item-title">Catalog</span>
+                    </a>
+                </li>
+        </nav>
+
+        <nav class = "catalog">
+            
+            <ul class = "catalog-list">
+
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#catalog/1">
+                        <span class = "catalog-item-title">Category 1</span>
+                    </a>
+                </li>
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#catalog/2">
+                        <span class = "catalog-item-title">Category 2</span>
+                    </a>
+                </li>
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#catalog/3">
+                        <span class = "catalog-item-title">Category 3</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <nav class = "catalog">
+            <ul class = "catalog-list">
+
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#offer/autumn_sale">
+                        <span class = "catalog-item-title">Autumn Sale!</span>
+                    </a>
+                </li>
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#offer/winter_sale">
+                        <span class = "catalog-item-title">Winter Sale!</span>
+                    </a>
+                </li>
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "/#offer/summer_sale">
+                        <span class = "catalog-item-title">Summer Sale!</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
     </div>
 
+    <main id = "container">
+
+        
+        <div id = "loader" class = "loader-dual-ring overlay hidden"></div>
+
+        <div class = "offer">
+            <a class = "offer-link" href = "/#offer/autumn_sale">
+                <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
+            </a>
+        </div>
+
+        <div class = "products-container">
+            <h2>Featured products</h2><br>
+            <div class = "products-grid">
+        
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+                <div class = "product-tile">
+                    <a class = "product-link" href = "/#products/factorio">
+                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                        <br><br><span class = "product-name">Factorio</span>
+                    </a>
+                    <a class = "add-to-cart-link" href = "/#cart.....">
+                        <button class = "price-add-to-cart-button">350 ₴</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class = "pagination">
+            <a href = "#">&laquo;</a>
+            <a class = "active" href = "#">1</a>
+            <a href = "#">2</a>
+            <a href = "#">3</a>
+            <a href = "#">&raquo;</a>
+        </div>
+
+        
+    </main>
+
+    <div class = "fixed">
+        
+        <div class = "account-actions">
+            <div class = "actions-bar">
+                <a class = "action-link" href = "/cart">
+                <div class = "action" id = "shopping-cart">
+                    <img src = "resources/icon_shopping_cart.svg" alt = "shopping-cart">
+                    <span class = "action-title">Cart</span>
+                </div>
+                </a>
+            </div>
+        </div>
+
+        <div class = "up-action">
+            <button onclick = "goUp()" id = "up-button">
+                <img src = "resources/icon_arrow_upward.svg" alt = "scroll-to-top">
+        </button>
+        </div>
+    </div>
+    
+
     <footer>
-        <p>footer</p>
+        <nav class = "footer-menu">
+            <ul class = "footer-category">
+                <li class = "footer-category-item">
+                    <span class = "footer-category-title">Help</span>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Delivery and payment</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Credit</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Warranty</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Refund policy</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Service center</span>
+                    </a>
+                </li>
+            </ul>
+        
+            <ul class = "footer-category">
+                <li class = "footer-category-item">
+                    <span class = "footer-category-title">Company</span>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">About us</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Terms of use</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Contacts</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Jobs</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class = "footer-category">
+                <li class = "footer-category-item">
+                    <span class = "footer-category-title">Services</span>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class = "footer-category">
+                <li class = "footer-category-item">
+                    <span class = "footer-category-title">Associates</span>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+                <li class = "footer-category-item">
+                    <a class = "footer-category-item-link" href = "/help">
+                        <span class = "footer-category-item-title">Information</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
     </footer>
 
+    <script>
+        let loader = document.getElementById("loader");
+        loader.classList.toggle("hidden");
+        setTimeout(function(){ loader.classList.toggle("hidden"); }, 1000);
+    </script>
+    <script>
+        let up_btn = document.getElementById("up-button");
+
+        window.onscroll = function() {scroll()};
+
+        function scroll() 
+        {
+        if (document.documentElement.scrollTop > 400) 
+                up_btn.style.opacity = 0.75;
+        else    up_btn.style.opacity = 0;
+        }
+
+        function goUp() {document.documentElement.scrollTop = 0};
+
+    </script>
     <script src = "js/index.js" type = "module"></script>
 
 </body>
