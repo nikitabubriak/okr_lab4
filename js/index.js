@@ -3,11 +3,16 @@ import Client from './client.js';
 import TemplateProcessor from './templateProcessor.js';
 // import ...
 
-// let loader = document.getElementById("loader");
-// loader.classList.toggle("hidden");
+let loader = document.getElementById("loader");
+const loadingToggle = () =>
+{
+    loader.classList.toggle("hidden");
+}
 
 const render = () =>
 {
+    loadingToggle();
+    
     const router = new Router();
     const templateProcessor = new TemplateProcessor();
     const client = new Client();
@@ -26,14 +31,14 @@ const render = () =>
         .then((data) => 
         {
             templateProcessor.render(view(data));
+        })
+
+        .then(() => 
+        {
+            loadingToggle();
         });
 }
 
 render();
 window.addEventListener('hashchange', render);
-window.onhashchange = render();
-
-
-// if ("onhashchange" in window) {  
-//     alert("The browser supports the hashchange event!");  
-//   }  
+// window.onhashchange = render();
