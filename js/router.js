@@ -15,7 +15,7 @@ class Router
             default:
                 viewName = 'homePage';
                 endpointName = 'db';
-                window.location.hash = '';
+                window.location.hash = '#';
                 break;
         }
 
