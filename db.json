@@ -25,10 +25,11 @@
     }
   ],
 
-  "featuredProducts": [0,1,2,3,4,5],
+  "featuredProducts": [0,1,3,5],
 
   "catalog":
   [
+
     [
       {
         "id": 0,
@@ -51,7 +52,8 @@
         "description": "Details about this genre3",
         "products": [0,1,2]
       }
-    ], 
+    ],
+
     [
       {
         "id": 0,
@@ -83,7 +85,7 @@
         "id": 2,
         "categoryId": 1,
         "url": "factorio",
-        "name": "Factorio",
+        "name": "NOT Factorio",
         "description": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
         "image": "resources/products/factorio.jpg",
         "releaseDate": "14.08.2020",
@@ -104,8 +106,35 @@
         "publisher": "Wube Software LTD.",
         "price": 350,
         "relatedProducts": [0,1,2]
+      },
+      {
+        "id": 4,
+        "categoryId": 1,
+        "url": "factorio",
+        "name": "NOT Factorio",
+        "description": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
+        "image": "resources/products/factorio.jpg",
+        "releaseDate": "14.08.2020",
+        "developer": "Wube Software LTD.",
+        "publisher": "Wube Software LTD.",
+        "price": 350,
+        "relatedProducts": [0,1,3]
+      },
+      {
+        "id": 5,
+        "categoryId": 0,
+        "url": "factorio",
+        "name": "Factorio",
+        "description": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
+        "image": "resources/products/factorio.jpg",
+        "releaseDate": "14.08.2020",
+        "developer": "Wube Software LTD.",
+        "publisher": "Wube Software LTD.",
+        "price": 350,
+        "relatedProducts": [0,1,2]
       }
     ]
+
   ],
 
 

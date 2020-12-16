@@ -35,15 +35,6 @@
     8. order status page
         /#order/[id] (refresh > forward home)
 
-    routing 
-    {
-        ~loader animation while loading data from server
-        via window.location.hash
-        using direct link to the page
-        forwarding without reloading the entire page
-        invalid hash > forward to home
-    }
-    
     save cart content to localstorage using only one key "cart",
     with {<productID>:<count>, ...}
     clear cart after order submission
@@ -154,7 +145,7 @@
 
         <div id = "main-container">
             
-            <!-- <div class = "offer">
+            <div class = "offer">
                 <a class = "offer-link" href = "#offer/autumn_sale">
                     <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
                 </a>
@@ -173,47 +164,19 @@
                             <button class = "price-add-to-cart-button">350 ₴</button>
                         </a>
                     </div>
-                    <div class = "product-tile">
-                        <a class = "product-link" href = "#products/factorio">
-                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
-                            <br><br><span class = "product-name">Factorio</span>
-                        </a>
-                        <a class = "add-to-cart-link" href = "#cart">
-                            <button class = "price-add-to-cart-button">350 ₴</button>
-                        </a>
-                    </div>
-                    <div class = "product-tile">
-                        <a class = "product-link" href = "#products/factorio">
-                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
-                            <br><br><span class = "product-name">Factorio</span>
-                        </a>
-                        <a class = "add-to-cart-link" href = "#cart">
-                            <button class = "price-add-to-cart-button">350 ₴</button>
-                        </a>
-                    </div>
-                    <div class = "product-tile">
-                        <a class = "product-link" href = "#products/factorio">
-                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
-                            <br><br><span class = "product-name">Factorio</span>
-                        </a>
-                        <a class = "add-to-cart-link" href = "#cart">
-                            <button class = "price-add-to-cart-button">350 ₴</button>
-                        </a>
-                    </div>
                     
                 </div>
             </div>
-    
-            <div class = "pagination">
-                <a href = "#">&laquo;</a>
-                <a class = "active" href = "#">1</a>
-                <a href = "#">2</a>
-                <a href = "#">3</a>
-                <a href = "#">&raquo;</a>
-            </div> -->
+            
         </div>
         
-
+        <div class = "pagination">
+            <a href = "#">&laquo;</a>
+            <a class = "active" href = "#">1</a>
+            <a href = "#">2</a>
+            <a href = "#">3</a>
+            <a href = "#">&raquo;</a>
+        </div>
         
     </main>
 
