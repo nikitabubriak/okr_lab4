@@ -149,40 +149,70 @@
         </nav>
     </div>
 
-    <main id = "main-container">
+    <main>
         <div id = "loader" class = "loader-dual-ring overlay hidden"></div>
 
-        <div class = "offer">
-            <a class = "offer-link" href = "#offer/autumn_sale">
-                <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
-            </a>
-        </div>
-
-        <div class = "products-container">
-            <h2>Featured products</h2><br>
-            <div class = "products-grid">
-        
-                <div class = "product-tile">
-                    <a class = "product-link" href = "#products/factorio">
-                        <img src = "resources/products/factorio.jpg" alt = "Factorio">
-                        <br><br><span class = "product-name">Factorio</span>
-                    </a>
-                    <a class = "add-to-cart-link" href = "#cart">
-                        <button class = "price-add-to-cart-button">350 ₴</button>
-                    </a>
-                </div>
-                
-
+        <div id = "main-container">
+            
+            <!-- <div class = "offer">
+                <a class = "offer-link" href = "#offer/autumn_sale">
+                    <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
+                </a>
             </div>
+    
+            <div class = "products-container">
+                <h2>Featured products</h2><br>
+                <div class = "products-grid">
+            
+                    <div class = "product-tile">
+                        <a class = "product-link" href = "#products/factorio">
+                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                            <br><br><span class = "product-name">Factorio</span>
+                        </a>
+                        <a class = "add-to-cart-link" href = "#cart">
+                            <button class = "price-add-to-cart-button">350 ₴</button>
+                        </a>
+                    </div>
+                    <div class = "product-tile">
+                        <a class = "product-link" href = "#products/factorio">
+                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                            <br><br><span class = "product-name">Factorio</span>
+                        </a>
+                        <a class = "add-to-cart-link" href = "#cart">
+                            <button class = "price-add-to-cart-button">350 ₴</button>
+                        </a>
+                    </div>
+                    <div class = "product-tile">
+                        <a class = "product-link" href = "#products/factorio">
+                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                            <br><br><span class = "product-name">Factorio</span>
+                        </a>
+                        <a class = "add-to-cart-link" href = "#cart">
+                            <button class = "price-add-to-cart-button">350 ₴</button>
+                        </a>
+                    </div>
+                    <div class = "product-tile">
+                        <a class = "product-link" href = "#products/factorio">
+                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
+                            <br><br><span class = "product-name">Factorio</span>
+                        </a>
+                        <a class = "add-to-cart-link" href = "#cart">
+                            <button class = "price-add-to-cart-button">350 ₴</button>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div class = "pagination">
+                <a href = "#">&laquo;</a>
+                <a class = "active" href = "#">1</a>
+                <a href = "#">2</a>
+                <a href = "#">3</a>
+                <a href = "#">&raquo;</a>
+            </div> -->
         </div>
-
-        <div class = "pagination">
-            <a href = "#">&laquo;</a>
-            <a class = "active" href = "#">1</a>
-            <a href = "#">2</a>
-            <a href = "#">3</a>
-            <a href = "#">&raquo;</a>
-        </div>
+        
 
         
     </main>
@@ -320,13 +350,11 @@
         </div>
     </footer>
 
-    <!-- <script>
+    <script>
         let loader = document.getElementById("loader");
         loader.classList.toggle("hidden");
         setTimeout(function(){ loader.classList.toggle("hidden"); }, 1000);
-        window.addEventListener('hashchange', alert("The browser supports the hashchange event!"));
-        window.onhashchange = alert("The browser supports the hashchange event!");
-    </script> -->
+    </script>
 
     <script>
         let up_btn = document.getElementById("up-button");
