@@ -6,7 +6,6 @@ const view = (db) =>
             </a>
             <span>${db.offers.url}</span>
             <span>${db.offers[2].description}</span>
-            <span>${db[1][3].dateposted}</span>
 </div>
 `;
 
