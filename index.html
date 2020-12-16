@@ -145,7 +145,7 @@
 
         <div id = "main-container">
             
-            <div class = "offer">
+            <!-- <div class = "offer">
                 <a class = "offer-link" href = "#offer/autumn_sale">
                     <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
                 </a>
@@ -166,17 +166,17 @@
                     </div>
                     
                 </div>
-            </div>
+            </div> -->
             
         </div>
         
-        <div class = "pagination">
+        <!-- <div class = "pagination">
             <a href = "#">&laquo;</a>
             <a class = "active" href = "#">1</a>
             <a href = "#">2</a>
             <a href = "#">3</a>
             <a href = "#">&raquo;</a>
-        </div>
+        </div> -->
         
     </main>
 
@@ -318,7 +318,11 @@
         loader.classList.toggle("hidden");
         setTimeout(function(){ loader.classList.toggle("hidden"); }, 1000);
     </script> -->
-
+    <!-- <script>
+        let currentHash = window.location.hash.split('#')[1];
+        currentHash = currentHash.split('/');
+        alert(currentHash[0]);
+    </script> -->
     <script>
         let up_btn = document.getElementById("up-button");
 

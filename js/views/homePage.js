@@ -10,7 +10,7 @@ const view = (db) =>
     <h2>Featured products</h2><br>
     <div class = "products-grid">
         ${
-            catalog[1].map((product) =>
+            db.catalog[1].map((product) =>
             {for (i = 0; i < db.featuredProducts.length; i++)
             {if (product.id === db.featuredProducts[i]) 
             {`
