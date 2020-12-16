@@ -11,19 +11,19 @@
 
     ~db.json
 
-    1. home page {offer, featured}
+    1. home page {offer, featured} db
         /
     
-    2. offer page {detailed for each one}
+    2. offer page {detailed for each one} offers
         /#offer/[url]
     
-    3. catalog page {all products (> 16 pcs) divided with categories}
+    3. catalog page {all products (> 16 pcs) divided with categories} catalog
         /#catalog
     
-    4. category page {display for each (>3 pcs) category respective products}
+    4. category page {display for each (>3 pcs) category respective products} catalog
         /#catalog/[url]
 
-    5. product page {display an info page for each product}
+    5. product page {display an info page for each product} catalog
         /#product/[url]
     
     6. cart page
@@ -62,7 +62,7 @@
 
 <body>
 
-    <header>
+    <header id = "header">
         <a id = "logo" href = "#">
             <img src = "resources/logo.jpg" alt = "logo">
         </a>
@@ -149,9 +149,7 @@
         </nav>
     </div>
 
-    <main id = "container">
-
-        
+    <main id = "main-container">
         <div id = "loader" class = "loader-dual-ring overlay hidden"></div>
 
         <div class = "offer">
@@ -254,7 +252,7 @@
     </div>
     
 
-    <footer>
+    <footer id = "footer">
         <nav class = "footer-menu">
             <ul class = "footer-category">
                 <li class = "footer-category-item">
@@ -356,6 +354,14 @@
             </ul>
 
         </nav>
+
+        <div id = "disclaimer">
+            <br>
+            <p>DISCLAIMER</p>
+            <p>This website is not commercial and was created during the university course assignment for educational purposes only</p>
+            <p>All rights belong to their respective owners</p>
+            <br>
+        </div>
     </footer>
 
     <script>
