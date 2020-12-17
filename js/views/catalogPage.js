@@ -1,7 +1,7 @@
 const urlParser = (catalog) =>
 {
     let currentHash = window.location.hash.split('#')[1];
-    if (!currentHash) window.location.hash = '#';
+    // if (!currentHash) window.location.hash = '#';
 
     if (!currentHash.includes('/'))         return 'catalog';
 
