@@ -21,6 +21,11 @@ class Router
                 endpointName = 'catalog';
                 break;
 
+            case 'product':
+                viewName = 'offerPage';
+                endpointName = 'catalog';
+                break;
+
             default:
                 viewName = 'homePage';
                 endpointName = 'db';

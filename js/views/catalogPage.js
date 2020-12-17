@@ -38,7 +38,7 @@ const buildCategoryProductsGrid = (category, products) =>
             categoryProducts.map((product) =>
             `
             <div class = "product-tile">
-                <a class = "product-link" href = "#products/${product.url}">
+                <a class = "product-link" href = "#product/${product.url}">
                     <img src = "${product.image}" alt = "${product.name}">
                     <br><br><span class = "product-name">${product.name}</span>
                 </a>
@@ -64,7 +64,12 @@ const view = (catalog) =>
 
         for (let i = 0; i < catalog[0].length; i++)
         {
-            catalogPage += `<h2>${catalog[0][i].name}</h2><br></br>`;
+            catalogPage += 
+            `
+            <br><a href = "#catalog/${catalog[0][i].url}">
+                <h2>${catalog[0][i].name}</h2>
+            </a><br>
+            `;
             catalogPage += buildCategoryProductsGrid(catalog[0][i], catalog[1]);
         }
 
@@ -77,8 +82,8 @@ const view = (catalog) =>
         let categoryPage = `<div class = "products-container">`;
         categoryPage += 
         `
-            <h2>${page.name}</h2><br></br>
-            <span>${page.description}</span>
+            <br><h2>${page.name}</h2><br>
+            <span>${page.description}</span><br>
         `;
         categoryPage += buildCategoryProductsGrid(page, catalog[1]);
         categoryPage += `<div class = "products-container">`;

@@ -10,18 +10,8 @@
     <!-- 
 
     ~db.json
-
-    1. home page {offer, featured} db
-        /
-    
-    2. offer page {detailed for each one} offers
-        /#offer/[url]
-    
-    3. catalog page {all products (> 16 pcs) divided with categories} catalog
-        /#catalog
-    
-    4. category page {display for each (>3 pcs) category respective products} catalog
-        /#catalog/[url]
+    >= 3 categories
+    >= 16 products
 
     5. product page {display an info page for each product} catalog
         /#product/[url]
@@ -49,7 +39,7 @@
     offers slider on the homepage
     urlParser module subdirectory routing per item
     ~modular code (ES6) /classes-services
-    ~media queries
+    ~media queries and CSS check for the pages
     no mistakes in the console while running
     stable work in all browsers of latest version
  -->
@@ -145,33 +135,10 @@
         </nav>
     </div>
 
-    <main>
+    <main class = "container">
         <div id = "loader" class = "loader-dual-ring overlay hidden"></div>
 
         <div id = "main-container">
-            
-            <!-- <div class = "offer">
-                <a class = "offer-link" href = "#offer/autumn_sale">
-                    <img src = "resources/offers/autumn_sale.jpg" alt = "offer">
-                </a>
-            </div>
-    
-            <div class = "products-container">
-                <h2>Featured products</h2><br>
-                <div class = "products-grid">
-            
-                    <div class = "product-tile">
-                        <a class = "product-link" href = "#products/factorio">
-                            <img src = "resources/products/factorio.jpg" alt = "Factorio">
-                            <br><br><span class = "product-name">Factorio</span>
-                        </a>
-                        <a class = "add-to-cart-link" href = "#cart">
-                            <button class = "price-add-to-cart-button">350 ₴</button>
-                        </a>
-                    </div>
-                    
-                </div>
-            </div> -->
             
         </div>
         
@@ -318,16 +285,6 @@
         </div>
     </footer>
 
-    <!-- <script>
-        let loader = document.getElementById("loader");
-        loader.classList.toggle("hidden");
-        setTimeout(function(){ loader.classList.toggle("hidden"); }, 1000);
-    </script> -->
-    <!-- <script>
-        let currentHash = window.location.hash.split('#')[1];
-        currentHash = currentHash.split('/');
-        alert(currentHash[0]);
-    </script> -->
     <script>
         let up_btn = document.getElementById("up-button");
 

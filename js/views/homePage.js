@@ -21,7 +21,7 @@ const view = (db) =>
             <img src = "${db.offers[0].image}" alt = "${db.offers[0].name}">
         </a>
     </div>
-    
+
     <div class = "products-container">
         <h2>Featured products</h2><br>
         <div class = "products-grid">
@@ -29,7 +29,7 @@ const view = (db) =>
             featured.map((product) =>
             `
             <div class = "product-tile">
-                <a class = "product-link" href = "#products/${product.url}">
+                <a class = "product-link" href = "#product/${product.url}">
                     <img src = "${product.image}" alt = "${product.name}">
                     <br><br><span class = "product-name">${product.name}</span>
                 </a>
