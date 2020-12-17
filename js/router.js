@@ -22,7 +22,7 @@ class Router
                 break;
 
             case 'product':
-                viewName = 'offerPage';
+                viewName = 'productPage';
                 endpointName = 'catalog';
                 break;
 
