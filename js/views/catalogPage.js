@@ -1,7 +1,6 @@
 const urlParser = (catalog) =>
 {
     let currentHash = window.location.hash.split('#')[1];
-    // if (!currentHash) window.location.hash = '#';
 
     if (!currentHash.includes('/'))         return 'catalog';
 
@@ -13,62 +12,76 @@ const urlParser = (catalog) =>
     }
 }
 
+const getCategoryProducts = (category, products) =>
+{
+    let categoryProducts = [];
+
+    products.map((product) =>
+    {
+        if (product.categoryID === category.ID)
+        {
+            categoryProducts.push(product);
+        }
+    });
+
+    return categoryProducts;
+}
+
+const buildCategoryProductsGrid = (category, products) =>
+{
+    let categoryProducts = getCategoryProducts(category, products);
+            
+    let categoryPage =
+    `
+    <div class = "products-grid">
+        ${
+            categoryProducts.map((product) =>
+            `
+            <div class = "product-tile">
+                <a class = "product-link" href = "#products/${product.url}">
+                    <img src = "${product.image}" alt = "${product.name}">
+                    <br><br><span class = "product-name">${product.name}</span>
+                </a>
+                <a class = "add-to-cart-link" href = "#cart">
+                    <button class = "price-add-to-cart-button">${product.price} ₴</button>
+                </a>
+            </div>
+            `).join("")
+        }
+    </div>
+    `;
+
+    return categoryPage;
+}
+
 const view = (catalog) => 
 {
     let page = urlParser(catalog);
 
     if (page === 'catalog')
     {
-        let catalogPage = 
-        `
-        <div id = "catalog">
-            ${
-                catalog[0].map((category) => 
-                `
-                <div class = "category-item">
-                    <span class = "category-name">${category.name}</span>
-                    <span class = "category-description">${category.description}</span>
-                </div>
+        let catalogPage = `<div class = "products-container">`;
 
-                    <div class = "products">
-                    ${
-                        catalog[1].map((product) => 
-                        {if (product.categoryID === category.ID)
-                        {`
-                        <div class = "product-item">
-                            <span class = "product-name">${product.name}</span>
-                        </div>
-                        `}}).join("")
-                    }
-                    </div>
-                `).join("")
-            }
-        </div>
-        `;
+        for (let i = 0; i < catalog[0].length; i++)
+        {
+            catalogPage += `<h2>${catalog[0][i].name}</h2><br></br>`;
+            catalogPage += buildCategoryProductsGrid(catalog[0][i], catalog[1]);
+        }
+
+        catalogPage += `</div>`;
 
         return catalogPage;
     }
     else
     {
-        let categoryPage =
+        let categoryPage = `<div class = "products-container">`;
+        categoryPage += 
         `
-        <div class = "category-item">
-            <span class = "category-name">${page.name}</span>
-            <span class = "category-description">${page.description}</span>
-
-            <div class = "products">
-            ${
-                catalog[1].map((product) => 
-                {if (product.categoryID === page.ID)
-                {`
-                <div class = "product-item">
-                    <span class = "product-name">${product.name}</span>
-                </div>
-                `}}).join("")
-            }
-            </div>
-        </div>
+            <h2>${page.name}</h2><br></br>
+            <span>${page.description}</span>
         `;
+        categoryPage += buildCategoryProductsGrid(page, catalog[1]);
+        categoryPage += `<div class = "products-container">`;
 
         return categoryPage;
     }
