@@ -12,7 +12,7 @@ const view = (db) =>
         ${
             db.catalog[1].map((product) =>
             {for (i = 0; i < db.featuredProducts.length; i++)
-            {if (product.id === db.featuredProducts[i]) 
+            {if (product.ID === db.featuredProducts[i]) 
             {`
             <div class = "product-tile">
                 <a class = "product-link" href = "#products/${product.url}">

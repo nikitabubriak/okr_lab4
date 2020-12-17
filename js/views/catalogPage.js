@@ -1,6 +1,6 @@
 const view = (catalog) => 
 `
-<div id = "categories">
+<div id = "catalog">
     ${
         catalog[0].map((category) => 
         `
@@ -8,18 +8,18 @@ const view = (catalog) =>
             <span class = "category-name">${category.name}</span>
             <span class = "category-description">${category.description}</span>
         </div>
-        `).join("")
-    }
-</div>
 
-<div id = "products">
-    ${
-        catalog[1].map((product) => 
-        `
-        <div class = "product-item">
-            <span class = "product-name">${product.name}</span>
-            <span class = "product-description">${product.description}</span>
-        </div>
+            <div class = "products">
+            ${
+                catalog[1].map((product) => 
+                {if (product.categoryID === category.ID)
+                {`
+                <div class = "product-item">
+                    <span class = "product-name">${product.name}</span>
+                </div>
+                `}}).join("")
+            }
+            </div>
         `).join("")
     }
 </div>
