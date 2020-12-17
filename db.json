@@ -33,21 +33,21 @@
     [
       {
         "ID": 0,
-        "url": "genre0",
+        "url": "0",
         "name": "Genre0",
-        "description": "Details about this genre1",
+        "description": "Details about this genre1"
       },
       {
         "ID": 1,
-        "url": "genre1",
+        "url": "1",
         "name": "Genre1",
-        "description": "Details about this genre2",
+        "description": "Details about this genre2"
       },
       {
         "ID": 2,
-        "url": "genre2",
+        "url": "2",
         "name": "Genre2",
-        "description": "Details about this genre3",
+        "description": "Details about this genre3"
       }
     ],
 

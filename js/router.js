@@ -6,13 +6,14 @@ class Router
         let endpointName = '';
 
         let currentHash = window.location.hash.split('#')[1];
+        if (!currentHash) currentHash = '#';
         if (currentHash.contains('/')) currentHash = currentHash.split('/');
         
         switch (currentHash[0]) 
         {
             case 'offer':
                 viewName = 'offerPage';
-                endpointName = 'catalog';
+                endpointName = 'offers';
                 break;
 
             case 'catalog':

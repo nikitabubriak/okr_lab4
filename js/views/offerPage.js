@@ -13,18 +13,6 @@ const view = (catalog) =>
         `).join("")
     }
 </div>
-
-<div id = "products">
-    ${
-        catalog[1].map((product) => 
-        `
-        <div class = "product-item">
-            <span class = "product-name">${product.name}</span>
-            <span class = "product-description">${product.description}</span>
-        </div>
-        `).join("")
-    }
-</div>
 `;
 
 export default view;
