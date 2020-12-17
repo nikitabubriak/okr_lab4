@@ -36,8 +36,8 @@ const view = (catalog) =>
     let productPage =
     `
     <div class = "product">
-        <a class = "product-link" href = "#product/${product.steam-link}">
-            <img src = "${product.image}" alt = "${product.name}">
+        <a class = "product-link" href = "#product/${page.steamLink}">
+            <img src = "${page.image}" alt = "${page.name}">
             <h6>the image links to the real game store page</h6>
         </a>
         <div class = "product-details">
@@ -56,7 +56,7 @@ const view = (catalog) =>
             </a>
         </div>
     </div>
-    
+
     <div class = "products-container">
         <h2>Related products</h2><br>
         <div class = "products-grid">
