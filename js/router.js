@@ -7,7 +7,7 @@ class Router
 
         let currentHash = window.location.hash.split('#')[1];
         if (!currentHash) currentHash = '#';
-        if (currentHash.contains('/')) currentHash = currentHash.split('/');
+        if (currentHash.includes('/')) currentHash = currentHash.split('/');
         
         switch (currentHash[0]) 
         {

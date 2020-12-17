@@ -3,7 +3,7 @@ const urlParser = (catalog) =>
     let currentHash = window.location.hash.split('#')[1];
     if (!currentHash) window.location.hash = '#';
 
-    if (!currentHash.contains('/'))         return 'catalog';
+    if (!currentHash.includes('/'))         return 'catalog';
 
     let subdir = currentHash.split('/')[1];
 
