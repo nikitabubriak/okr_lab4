@@ -7,9 +7,9 @@ class Router
 
         let currentHash = window.location.hash.split('#')[1];
         if (!currentHash) currentHash = '#';
-        if (currentHash.includes('/')) currentHash = currentHash.split('/');
+        if (currentHash.includes('/')) currentHash = currentHash.split('/')[0];
         
-        switch (currentHash[0]) 
+        switch (currentHash) 
         {
             case 'offer':
                 viewName = 'offerPage';

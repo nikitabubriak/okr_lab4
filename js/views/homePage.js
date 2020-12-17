@@ -5,7 +5,7 @@ const view = (db) =>
     <div class = "offer">
         <a class = "offer-link" href = "#offer/${db.offers[0].url}">
             <img src = "${db.offers[0].image}" alt = "${db.offers[0].name}">
-            </a>
+        </a>
     </div>
     `;
 
