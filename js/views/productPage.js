@@ -36,19 +36,21 @@ const view = (catalog) =>
     let productPage =
     `
     <div class = "product">
-        <a class = "product-link" href = "#product/${page.steamLink}">
+        <a class = "product-link" href = "${page.steamLink}">
             <img src = "${page.image}" alt = "${page.name}">
             <h6>the image links to the real game store page</h6>
         </a>
         <div class = "product-details">
-            <br><h1 class = "product-title">${page.name}</h1>
+            <br><h1 class = "product-name">${page.name}</h1>
             <br><span class = "product-description">${page.description}</span>
             <br><span class = "product-info">Release date: ${page.releaseDate}</span>
             <br><span class = "product-info">Developer: ${page.developer}</span>
             <br><span class = "product-info">Publisher: ${page.publisher}</span>
             
+            <br><br><span>Buy ${page.name} for ${page.price} ₴</span>
+            <br><span>HERE SHOULD BE THE NUMBER OF PRODUCTS OPTION</span>
             <a class = "add-to-cart-link" href = "#cart">
-                <button class = "price-add-to-cart-button">${page.price} ₴</button>
+                <button class = "buy-button" id = "add-to-cart-btn">Add to Cart</button>
             </a>
             
             <br><a href = "#catalog/${productCategory.url}">
@@ -66,10 +68,8 @@ const view = (catalog) =>
             <div class = "product-tile">
                 <a class = "product-link" href = "#product/${product.url}">
                     <img src = "${product.image}" alt = "${product.name}">
-                    <br><br><span class = "product-name">${product.name}</span>
-                </a>
-                <a class = "add-to-cart-link" href = "#cart">
-                    <button class = "price-add-to-cart-button">${product.price} ₴</button>
+                    <br><br><span class = "product-tile-name">${product.name}</span>
+                    <span class = "product-tile-price">${product.price} ₴</span>
                 </a>
             </div>
             `).join("")

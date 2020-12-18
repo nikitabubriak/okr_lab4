@@ -177,7 +177,7 @@ main {
     width: 100%;
 }
 
-.product-name {
+.product-tile-name {
     position: absolute;
     left: 40px;
     font-size: 1.4em;
@@ -186,7 +186,7 @@ main {
     color: black;
 }
 
-.price-add-to-cart-button {
+.product-tile-price {
     position: absolute;
     right: 40px;
     font-size: 1.4em;

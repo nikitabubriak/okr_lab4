@@ -31,10 +31,8 @@ const view = (db) =>
             <div class = "product-tile">
                 <a class = "product-link" href = "#product/${product.url}">
                     <img src = "${product.image}" alt = "${product.name}">
-                    <br><br><span class = "product-name">${product.name}</span>
-                </a>
-                <a class = "add-to-cart-link" href = "#cart">
-                    <button class = "price-add-to-cart-button">${product.price} ₴</button>
+                    <br><br><span class = "product-tile-name">${product.name}</span>
+                    <span class = "product-tile-price">${product.price} ₴</span>
                 </a>
             </div>
             `).join("")
