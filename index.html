@@ -13,6 +13,7 @@
     >= 3 categories
     >= 16 products
     
+
     6. cart page
         /#cart
     
@@ -20,17 +21,17 @@
         /#order (closed when cart is empty > forward to home)
     
     8. order status page
-        /#order/[id] (refresh > forward home)
+        /#order/[id]  (refresh > forward home)
 
+    
     on products add-to-cart-button script + products amount/number
     save cart content to localstorage using only one key "cart",
     with {<productID>:<count>, ...}
-    clear cart after order submission
 
     the order button sends POST request with order details to the server
     use the id from server response to forward to the order status
+    clear cart after order submission
     handle error response
-
 
 
     offers slider on the homepage
@@ -52,7 +53,7 @@
 
         <div class = "search">
             <input type = "text" placeholder = "Search">
-            <button>🔍</button>
+            <a href = "#catalog"><button>🔍</button></a>
         </div>
         
         <nav class = "menu">
@@ -163,7 +164,7 @@
         </div>
 
         <div class = "up-action">
-            <button onclick = "goUp()" id = "up-button">
+            <button id = "up-button">
                 <img src = "resources/icon_arrow_upward.svg" alt = "scroll-to-top">
         </button>
         </div>
@@ -282,19 +283,8 @@
         </div>
     </footer>
 
-    <script>
-        let up_btn = document.getElementById("up-button");
-
-        window.onscroll = function() {scroll()};
-
-        function scroll() 
-        {
-        if (document.documentElement.scrollTop > 400) 
-                up_btn.style.opacity = 0.75;
-        else    up_btn.style.opacity = 0;
-        }
-
-        function goUp() {document.documentElement.scrollTop = 0};
+    <script src = "js/interaction.js">
+        
 
     </script>
     <script src = "js/index.js" type = "module"></script>

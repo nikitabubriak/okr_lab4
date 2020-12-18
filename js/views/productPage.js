@@ -38,11 +38,11 @@ const view = (catalog) =>
     <div class = "product">
         <a class = "product-link" href = "${page.steamLink}">
             <img src = "${page.image}" alt = "${page.name}">
-            <h6>the image links to the real game store page</h6>
+            <span>the image links to the real game store page</span>
         </a>
         <div class = "product-details">
             <br><h1 class = "product-name">${page.name}</h1>
-            <br><span class = "product-description">${page.description}</span>
+            <br><span class = "product-description">${page.description}</span><br>
             <br><span class = "product-info">Release date: ${page.releaseDate}</span>
             <br><span class = "product-info">Developer: ${page.developer}</span>
             <br><span class = "product-info">Publisher: ${page.publisher}</span>

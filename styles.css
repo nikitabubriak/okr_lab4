@@ -199,7 +199,9 @@ main {
     /* padding-right: 20px; */
     padding: 5px 10px;
     color: lavender;
-    background-color: #292350;
+    /* background-color: #292350; */
+    background-color: #288328;
+
 }
 
 .pagination {
