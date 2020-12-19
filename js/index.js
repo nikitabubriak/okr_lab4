@@ -33,7 +33,7 @@ const render = () =>
             templateProcessor.render(view(data));
         })
 
-        .then(() => 
+        .finally(() => 
         {
             loadingToggle();
         });
