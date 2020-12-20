@@ -15,8 +15,11 @@ const cartAddProduct = () =>
 
 const cartRemoveProduct = (id) =>
 {
-    // let cart = JSON.parse(localStorage.getItem("cart"));
-    localStorage.removeItem(`"cart.${id}"`);
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    delete cart[id];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    // localStorage.removeItem(`"cart.${id}"`);
 }
 
 const cartClear = () =>
