@@ -49,7 +49,7 @@ const view = (catalog) =>
             
             <br><br><span>Buy ${page.name} for ${page.price} ₴</span>
             <br><label for = "count">Select the number of products:</label>
-                <input type = "number" id = "count" name = "count" min = "1" max = "4">
+                <input type = "number" id = "count" name = "count" min = "1" max = "4" value = "1">
             <br><a class = "add-to-cart-link" href = "#cart">
                 <button class = "buy-button" id = "add-to-cart-btn" value = ${page.ID}>Add to Cart</button>
             </a>
