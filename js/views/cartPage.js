@@ -8,7 +8,7 @@ const view = (catalog) =>
     {
         for (let id of Object.keys(cart))
         {
-            if (product.ID === id)
+            if (product.ID == id)
             {
                 for (let i = 0; i < cart[id]; i++)
                 {
