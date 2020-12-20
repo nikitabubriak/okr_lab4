@@ -7,9 +7,19 @@ const cartAddProduct = () =>
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) cart = {};
     let id = btn.value;
-    let count = 2;//document.getElementById("product-count").value;
+    let count = 1;//document.getElementById("product-count").value;
     cart[id] = count;
     localStorage.setItem("cart", JSON.stringify(cart));
-    //btn.removeEventListener("click", cartAddProduct);
 
+}
+
+const cartRemoveProduct = (id) =>
+{
+    // let cart = JSON.parse(localStorage.getItem("cart"));
+    localStorage.removeItem(`"cart.${id}"`);
+}
+
+const cartClear = () =>
+{
+    localStorage.removeItem("cart");
 }

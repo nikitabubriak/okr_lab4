@@ -33,6 +33,9 @@ const view = (catalog) =>
                     <br><br><span class = "product-name">${product.name}</span>
                 </a>
                 <br><span class = "product-price">${product.price} ₴</span>
+                <a class = "add-to-cart-link" href = "#cart">
+                    <button class = "buy-button" id = "${page.ID}-remove-btn" value = ${page.ID} onclick = "cartRemoveProduct(id)">Remove</button>
+                </a>
             </div>
             `).join("")
         }
