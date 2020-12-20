@@ -48,8 +48,9 @@ const view = (catalog) =>
             <br><span class = "product-info">Publisher: ${page.publisher}</span>
             
             <br><br><span>Buy ${page.name} for ${page.price} ₴</span>
-            <br><span>HERE SHOULD BE THE NUMBER OF PRODUCTS OPTION</span>
-            <a class = "add-to-cart-link" href = "#cart">
+            <br><label for = "count">Select the number of products:</label>
+                <input type = "number" id = "count" name = "count" min = "1" max = "4">
+            <br><a class = "add-to-cart-link" href = "#cart">
                 <button class = "buy-button" id = "add-to-cart-btn" value = ${page.ID}>Add to Cart</button>
             </a>
             
