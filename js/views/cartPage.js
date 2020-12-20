@@ -21,7 +21,6 @@ const view = (catalog) =>
 
     let cartPage = 
     `
-    <p>CART</p>
     <div class = "products-container">
         <h2>Your shopping cart</h2><br>
         <div class = "products-grid">

@@ -7,7 +7,7 @@ class TemplateProcessor
 
         if (viewName === 'productPage')
         {
-            document.getElementById("add-to-cart-btn").addEventListener("click", cartAddProduct(this.value));
+            document.getElementById("add-to-cart-btn").addEventListener("click", cartAddProduct);
         }
     }
 }
