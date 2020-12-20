@@ -279,11 +279,18 @@ main {
 }
 
 
-.action span {
+.action-title {
     position: absolute;
     font-size: 1.4em;
     left: 120px;
     width: 200px;
+}
+
+.total-count {
+    position: absolute;
+    font-size: 1.4em;
+    left: 85px;
+    width: 40px;
 }
 
 .actions-bar a {

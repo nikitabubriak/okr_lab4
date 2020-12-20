@@ -8,19 +8,12 @@
     <link rel = "stylesheet" href = "styles.css">
 
     <!-- 
-
-    cart page
-        /#cart
     
     order submission page {with html5 input validation, stylized}
-        /#order (closed when cart is empty > forward to home)
+        /#order
     
     order status page
         /#order/[id]  (refresh > forward home)
-
-    on products add-to-cart-button script + products amount/number
-    save cart content to localstorage using only one key "cart",
-    with {<productID>:<count>, ...}
 
     the order button sends POST request to the server with order details 
     use the id from server response to forward to the order status
@@ -156,6 +149,7 @@
                 <a class = "action-link" href = "#cart">
                 <div class = "action" id = "shopping-cart">
                     <img src = "resources/icon_shopping_cart.svg" alt = "shopping-cart">
+                    <span class = "total-count">0</span>
                     <span class = "action-title">Cart</span>
                 </div>
                 </a>
