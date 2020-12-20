@@ -9,5 +9,3 @@ const cartAddProduct = (id) =>
     cart[id] = count;
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-
-document.getElementById("add-to-cart-btn").addEventListener("click", cartAddProduct(this.value));

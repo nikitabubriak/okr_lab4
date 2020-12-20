@@ -30,7 +30,7 @@ const render = () =>
         
         .then((data) => 
         {
-            templateProcessor.render(view(data));
+            templateProcessor.render(view(data), viewName);
         })
 
         .finally(() => 
