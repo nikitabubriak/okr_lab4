@@ -147,6 +147,9 @@ main {
     
     
 }
+.offer-details {
+    padding: 20px;
+}
 
 .products-container {
     margin: 40px;
@@ -180,6 +183,7 @@ main {
 
 .product-tile-name {
     position: absolute;
+    width: 200px;
     left: 40px;
     font-size: 1.4em;
     font-weight: bold;
@@ -554,4 +558,11 @@ footer {
     100% {
       transform: rotate(360deg);
     }
+}
+
+.product {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

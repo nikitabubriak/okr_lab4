@@ -9,24 +9,24 @@
 
     <!-- 
 
-    6. cart page
+    cart page
         /#cart
     
-    7. order submission page {with html5 input validation, stylized}
+    order submission page {with html5 input validation, stylized}
         /#order (closed when cart is empty > forward to home)
     
-    8. order status page
+    order status page
         /#order/[id]  (refresh > forward home)
 
-    
     on products add-to-cart-button script + products amount/number
     save cart content to localstorage using only one key "cart",
     with {<productID>:<count>, ...}
 
-    the order button sends POST request with order details to the server
+    the order button sends POST request to the server with order details 
     use the id from server response to forward to the order status
     clear cart after order submission
     handle error response
+
 
     offers slider on the homepage
     urlParser module subdirectory routing per item
@@ -87,18 +87,23 @@
             <ul class = "catalog-list">
 
                 <li class = "catalog-item">
-                    <a class = "catalog-item-link" href = "#catalog/0">
-                        <span class = "catalog-item-title">Category 0</span>
+                    <a class = "catalog-item-link" href = "#catalog/adventure">
+                        <span class = "catalog-item-title">Adventure</span>
                     </a>
                 </li>
                 <li class = "catalog-item">
-                    <a class = "catalog-item-link" href = "#catalog/1">
-                        <span class = "catalog-item-title">Category 1</span>
+                    <a class = "catalog-item-link" href = "#catalog/roguelike">
+                        <span class = "catalog-item-title">Roguelike</span>
                     </a>
                 </li>
                 <li class = "catalog-item">
-                    <a class = "catalog-item-link" href = "#catalog/2">
-                        <span class = "catalog-item-title">Category 2</span>
+                    <a class = "catalog-item-link" href = "#catalog/rpg">
+                        <span class = "catalog-item-title">RPG</span>
+                    </a>
+                </li>
+                <li class = "catalog-item">
+                    <a class = "catalog-item-link" href = "#catalog/strategy">
+                        <span class = "catalog-item-title">Strategy</span>
                     </a>
                 </li>
 

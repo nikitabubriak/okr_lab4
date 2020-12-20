@@ -50,10 +50,10 @@ const view = (catalog) =>
             <br><br><span>Buy ${page.name} for ${page.price} ₴</span>
             <br><span>HERE SHOULD BE THE NUMBER OF PRODUCTS OPTION</span>
             <a class = "add-to-cart-link" href = "#cart">
-                <button class = "buy-button" id = "add-to-cart-btn">Add to Cart</button>
+                <button class = "buy-button" id = "add-to-cart-btn" value = ${page.ID}>Add to Cart</button>
             </a>
             
-            <br><a href = "#catalog/${productCategory.url}">
+            <br><br><a href = "#catalog/${productCategory.url}">
                 <h2 class = "product-category">Category: ${productCategory.name}</h2>
             </a>
         </div>
