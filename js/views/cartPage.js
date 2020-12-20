@@ -40,10 +40,12 @@ const view = (catalog) =>
         </div>
     </div>
     <span class = "total-price">${totalPrice} ₴</span>
-    <a href = "#order">
-        <button class = "buy-button" id = "proceed-to-order-btn">Proceed to Order</button>
-    </a>
     `;
+
+    if (Object.keys(cart).length === 0 && cart.constructor === Object) 
+    {cartPage += `<a href = "#"><button class = "buy-button" id = "proceed-to-order-btn">Your Cart is empty</button></a>`;}
+    else 
+    {cartPage += `<a href = "#order"><button class = "buy-button" id = "proceed-to-order-btn">Proceed to Order</button></a>`;}
 
     return cartPage;
 }
