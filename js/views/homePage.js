@@ -16,11 +16,34 @@ const view = (db) =>
 
     let homePage = 
     `
-    <div class = "offer">
-        <a class = "offer-link" href = "#offer/${db.offers[0].url}">
-            <img src = "${db.offers[0].image}" alt = "${db.offers[0].name}">
-        </a>
+    <div class="offer">
+        <div class = "slideshow">
+            <a class = "slide fade" href = "#offer/${db.offers[0].url}">
+                <div class = "numbertext">1 / 3</div>
+                <img src = "${db.offers[0].image}" alt = "${db.offers[0].name}">
+            </a>
+    
+            <a class="slide fade" href = "#offer/${db.offers[1].url}">
+                <div class = "numbertext">2 / 3</div>
+                <img src = "${db.offers[1].image}" alt = "${db.offers[1].name}">
+            </a>
+    
+            <a class="slide fade" href = "#offer/${db.offers[2].url}">
+                <div class = "numbertext">3 / 3</div>
+                <img src = "${db.offers[2].image}" alt = "${db.offers[2].name}">
+            </a>
+
+            <a class = "prev" onclick = "moveSlide(-1)">&#10094;</a>
+            <a class = "next" onclick = "moveSlide(1)">&#10095;</a>
+        </div>
     </div>
+    <br>
+    <div class = "dot-pagination">
+        <span class = "dot" onclick = "setSlide(0)"></span>
+        <span class = "dot" onclick = "setSlide(1)"></span>
+        <span class = "dot" onclick = "setSlide(2)"></span>
+    </div>
+    <script>showSlides(0);</script>
 
     <div class = "products-container">
         <h2>Featured products</h2><br>

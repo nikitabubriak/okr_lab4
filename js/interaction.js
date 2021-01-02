@@ -12,5 +12,37 @@ const goUp = () =>
     document.documentElement.scrollTop = 0;
 }
 
+const moveSlide = (n) =>
+{
+  showSlides(slideIndex += n);
+}
+
+const setSlide = (n) => 
+{
+  showSlides(slideIndex = n);
+}
+
+const showSlides = (n) => 
+{
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length - 1) 
+        slideIndex = 0;
+  if (n < 0) 
+        slideIndex = slides.length-1;
+
+  for (let i = 0; i < slides.length; i++) 
+      slides[i].style.display = "none";
+  for (let i = 0; i < dots.length; i++) 
+      dots[i].className = dots[i].className.replace(" active", "");
+
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].className += " active";
+}
+
+//let slideIndex = 0;
+//showSlides(slideIndex);
+
 window.addEventListener("scroll", scrolling);
 document.getElementById("up-button").addEventListener("click", goUp);
