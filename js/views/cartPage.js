@@ -39,8 +39,10 @@ const view = (catalog) =>
         }
         </div>
     </div>
-    <span class = "total-price">${totalPrice} ₴</span>
+    <span class = "total-price">Total price: ${totalPrice} ₴</span>
     `;
+
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
 
     if (Object.keys(cart).length === 0 && cart.constructor === Object) 
     {cartPage += `<a href = "#"><button class = "buy-button" id = "proceed-to-order-btn">Your Cart is empty</button></a>`;}

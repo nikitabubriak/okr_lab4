@@ -12,6 +12,8 @@ const goUp = () =>
     document.documentElement.scrollTop = 0;
 }
 
+let slideIndex = 0;
+
 const moveSlide = (n) =>
 {
   showSlides(slideIndex += n);
@@ -41,7 +43,6 @@ const showSlides = (n) =>
   dots[slideIndex].className += " active";
 }
 
-//let slideIndex = 0;
 //showSlides(slideIndex);
 
 window.addEventListener("scroll", scrolling);

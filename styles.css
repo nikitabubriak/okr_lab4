@@ -652,3 +652,71 @@ footer {
     flex-direction: column;
     align-items: center;
 }
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+/* .order-info {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.order-container input{
+  width: 25vw;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.order-container label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.order-container select {
+    padding: 12px;
+  }
+
+.buy-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  /* width: 100%; */
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.order-container .btn:hover {
+  background-color: #45a049;
+}
+
+input:required, select:required {
+    border: lightblue solid 3px;
+}
+
+input:optional {
+    border: lightgray solid 3px;
+}
+
+input:invalid {
+    border: salmon solid 3px;
+  }
