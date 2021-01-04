@@ -1,16 +1,16 @@
-// const urlParser = (db) =>
-// {
-//     let currentHash = window.location.hash.split('#')[1];
+const urlParser = (db) =>
+{
+    let currentHash = window.location.hash.split('#')[1];
 
-//     if (!currentHash.includes('/'))         return 'order';
+    if (!currentHash.includes('/'))         return 'order';
 
-//     let subdir = currentHash.split('/')[1];
+    // let subdir = currentHash.split('/')[1];
 
-//     for (let i = 0; i < catalog[0].length; i++)
-//     {
-//         if (catalog[0][i].url === subdir)   return catalog[0][i];
-//     }
-// }
+    // for (let i = 0; i < catalog[0].length; i++)
+    // {
+    //     if (catalog[0][i].url === subdir)   return catalog[0][i];
+    //}
+}
 
 const view = (db) => 
 {
@@ -27,7 +27,7 @@ const view = (db) =>
               <h3>Order information</h3>
 
               <label for = "name"> Full Name</label>
-              <input type = "text" pattern = "[a-Z]{4,32}" required = "required" id = "name" name = "name" placeholder = "Name Example">
+              <input type = "text" pattern="[a-zA-Z]+{3,32}" required = "required" id = "name" name = "name" placeholder = "Name Example">
               
               <label for = "email"> Email</label>
               <input type = "email" required = "required" id = "email" name = "email" placeholder = "name@example.com">

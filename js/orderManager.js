@@ -79,11 +79,13 @@ async function submitOrder ()
             body: JSON.stringify(order)
         }
     )
-    .then(response => response.json());
+    //.then(response => response.json());
+    const orderResponse = await response.json();
 
     cartClear();
-    window.location.hash += `/${response.id}`;
+    history.replaceState(null, null, document.location.pathname + `/${orderResponse.id}`);
+    //window.location.hash += `/${response.id}`;
 
     const rootNode = document.getElementById('main-container');
-    rootNode.innerHTML = `<p>Order ${response.id}</p>`;
+    rootNode.innerHTML = `<p>Order ${orderResponse.id}</p>`;
 }
