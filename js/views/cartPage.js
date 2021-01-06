@@ -19,6 +19,11 @@ const view = (catalog) =>
         }
     });
 
+    if (cartProducts.length = 0)
+    {
+        window.location.hash = '#';
+    }
+
     let cartPage = 
     `
     <div class = "products-container">

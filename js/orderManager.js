@@ -94,6 +94,7 @@ async function submitOrder ()
             const rootNode = document.getElementById('main-container');
             rootNode.innerHTML = 
             `
+            <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
             <p>Order ${response.id}</p>
             <br><p>Details:</p><br>
             <p>${response.name}</p>
@@ -104,11 +105,11 @@ async function submitOrder ()
             <p>${response.payment}</p>
             <p>${response.card}</p>
             <p>${response.name}</p>
-            <p>${response.total}</p>
+            <p>Order Total: ${response.total} ₴</p>
             `;
 
-            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-            setTimeout(function() { alert("Alert! This is test"); }, 3000);
+            //history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+            //setTimeout(function() { alert("Alert! This is test"); }, 3000);
         }
     )
     //const content = await response.json();
