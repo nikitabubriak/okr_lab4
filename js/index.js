@@ -35,6 +35,7 @@ const render = () =>
 
         .finally(() => 
         {
+            countProducts();
             loadingToggle();
         });
 }

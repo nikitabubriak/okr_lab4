@@ -106,12 +106,13 @@ async function submitOrder ()
             <p>${response.name}</p>
             <p>${response.total}</p>
             `;
-            
-            history.replaceState(null, null, document.location.pathname + `${response.id}`);
+
+            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+            setTimeout(function() { alert("Alert! This is test"); }, 3000);
         }
     )
     //const content = await response.json();
     //console.log(content);
-     //window.location.hash += `/${response.id}`;
+    //window.location.hash += `/${response.id}`;
     
 }
