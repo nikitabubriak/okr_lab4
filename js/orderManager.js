@@ -71,8 +71,8 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
-    try
-    {
+    //try
+    //{
     const submitResponse = await fetch
     (
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
@@ -86,45 +86,61 @@ async function submitOrder ()
             body: JSON.stringify(order)
         }
     )
-    .then(response => response.json())
-    .then
-    (
-        (response) => 
-        {
-            alert(`Order submission complete! ID ${response.id}`);
-            
-            const rootNode = document.getElementById('main-container');
-            rootNode.innerHTML = 
-            `
-            <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-            <p>Order ${response.id}</p>
-            <br><p>Details:</p><br>
-            <p>${response.name}</p>
-            <p>${response.email}</p>
-            <p>${response.phone}</p>
-            <p>${response.date}</p>
-            <p>${response.time}</p>
-            <p>${response.payment}</p>
-            <p>${response.card}</p>
-            <p>${response.name}</p>
-            <p>Order Total: ${response.total} ₴</p>
-            `;
+    const response = await submitResponse.json();
 
-            //window.location.hash += `/${response.id}`;
-            //setTimeout(function() { alert("Alert! This is test"); }, 3000);
-        }
-    )
-    .finally(() => 
-    {
-        cartClear();
-        history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-    });
-    }
-    catch (submissionError)
-    {
-        alert("Error. Submission not successful");
-        window.location.hash = '#';
-    }
+    console.log(response);
+
+    
+    
+    alert(`Order submission complete! ID ${response.id}`);
+            
+    const rootNode = document.getElementById('main-container');
+    rootNode.innerHTML = 
+    `
+    <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+    <p>Order ${response.id}</p>
+    <br><p>Details:</p><br>
+    <p>${response.name}</p>
+    <p>${response.email}</p>
+    <p>${response.phone}</p>
+    <p>${response.date}</p>
+    <p>${response.time}</p>
+    <p>${response.payment}</p>
+    <p>${response.card}</p>
+    <p>${response.name}</p>
+    <p>Order Total: ${response.total} ₴</p>
+    `;
+
+    history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+    cartClear();
+    
+    //.then(response => response.json())
+    //.then(res => console.log(res));
+
+
+    // .then
+    // (
+    //     (response) => 
+    //     {
+    //         console.log(response);
+            
+            
+    //     }
+    // )
+    // .finally(() => 
+    // {
+        
+    // });
+    //}
+    // catch (submissionError)
+    // {
+    //     alert("Error. Submission not successful");
+    //     window.location.hash = '#';
+    // }
+    
+    //window.location.hash += `/${response.id}`;
+    //setTimeout(function() { alert("Alert! This is test"); }, 3000);
+    
     //const content = await response.json();
     //console.log(content);
     //window.location.hash += `/${response.id}`;
