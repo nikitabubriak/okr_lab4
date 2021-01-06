@@ -89,11 +89,10 @@ async function submitOrder ()
     .then(response => response.json())
     .then
     (
-        response => 
+        (response) => 
         {
             alert(`Order submission complete! ID ${response.id}`);
-            cartClear();
-    
+            
             const rootNode = document.getElementById('main-container');
             rootNode.innerHTML = 
             `
@@ -111,8 +110,16 @@ async function submitOrder ()
             <p>Order Total: ${response.total} ₴</p>
             `;
 
-            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+            
             //setTimeout(function() { alert("Alert! This is test"); }, 3000);
+        }
+    )
+    .finally
+    (
+        () =>
+        {
+            cartClear();
+            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
         }
     )
     }
