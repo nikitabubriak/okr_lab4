@@ -54,6 +54,38 @@ const generateID = () =>
     return id;
 }
 
+const orderStatus = (response) =>
+{
+    console.log('1');
+    console.log(response);
+    alert(`Order submission complete! ID ${response.id}`);
+    
+    console.log('2');
+    console.log(response);
+    const rootNode = document.getElementById('main-container');
+    rootNode.innerHTML = 
+    `
+    <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+    <p>Order ${response.id}</p>
+    <br><p>Details:</p><br>
+    <p>${response.name}</p>
+    <p>${response.email}</p>
+    <p>${response.phone}</p>
+    <p>${response.date}</p>
+    <p>${response.time}</p>
+    <p>${response.payment}</p>
+    <p>${response.card}</p>
+    <p>Order Total: ${response.total} ₴</p>
+    `;
+    console.log('3');
+    console.log(response);
+    cartClear();
+    history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+    
+    console.log('4');
+    console.log(response);
+}
+
 async function submitOrder ()
 {
     const form = document.getElementById("order-form")
@@ -79,50 +111,25 @@ async function submitOrder ()
             method: 'POST',
             headers: 
             {
-                'Accept': 'application/json',
+                'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(order)
         }
     )
     .then(response => response.json())
-    .then
-    (
-        (response) => 
-        {
-            console.log('1');
-            console.log(response);
-            alert(`Order submission complete! ID ${response.id}`);
+    .then(response => orderStatus(response))
+
+    // .then
+    // (
+    //     (response) => 
+    //     {
+    //         orderStatus(response);
             
-            console.log('2');
-            console.log(response);
-            const rootNode = document.getElementById('main-container');
-            rootNode.innerHTML = 
-            `
-            <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-            <p>Order ${response.id}</p>
-            <br><p>Details:</p><br>
-            <p>${response.name}</p>
-            <p>${response.email}</p>
-            <p>${response.phone}</p>
-            <p>${response.date}</p>
-            <p>${response.time}</p>
-            <p>${response.payment}</p>
-            <p>${response.card}</p>
-            <p>${response.name}</p>
-            <p>Order Total: ${response.total} ₴</p>
-            `;
-            console.log('3');
-            console.log(response);
-            cartClear();
-            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-            
-            console.log('4');
-            console.log(response);
-            //window.location.hash += `/${response.id}`;
-            //setTimeout(function() { alert("Alert! This is test"); }, 3000);
-        }
-    )
+    //         window.location.hash += `/${response.id}`;
+    //         setTimeout(function() { alert("Alert! This is test"); }, 3000);
+    //     }
+    // )
     // .finally(() => 
     // {
         
@@ -140,4 +147,6 @@ async function submitOrder ()
     //console.log(content);
     //window.location.hash += `/${response.id}`;
     
+    //window.location.hash += `/${response.id}`;
+    //setTimeout(function() { alert("Alert! This is test"); }, 3000);
 }
