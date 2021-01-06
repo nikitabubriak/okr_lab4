@@ -57,8 +57,6 @@ const generateID = () =>
 const orderStatus = (response) =>
 {
     const rootNode = document.getElementById('main-container');
-    console.log('1');
-    console.log(response);
     rootNode.innerHTML = 
     `
     <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
@@ -75,8 +73,6 @@ const orderStatus = (response) =>
     `;
     cartClear();
     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-    console.log('2');
-    console.log(response);
 }
 
 async function submitOrder ()
@@ -102,11 +98,11 @@ async function submitOrder ()
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
         {
             method: 'POST',
-            headers: 
-            {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
+            // headers: 
+            // {
+            //     'Accept': 'application/json, text/plain, */*',
+            //     'Content-Type': 'application/json'
+            // },
             body: JSON.stringify(order)
         }
     )
