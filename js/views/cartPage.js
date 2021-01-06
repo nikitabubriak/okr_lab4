@@ -4,7 +4,7 @@ const view = (catalog) =>
     let cartProducts = [];
     let totalPrice = 0;
 
-    if (Object.keys(cart).length === 0)
+    if (!cart || Object.keys(cart).length === 0)
     {
         window.location.hash = '#';
     }

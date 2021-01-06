@@ -71,6 +71,8 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
+    try
+    {
     const submitResponse = await fetch
     (
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
@@ -89,6 +91,7 @@ async function submitOrder ()
     (
         response => 
         {
+            alert(`Order submission complete! ID ${response.id}`);
             cartClear();
     
             const rootNode = document.getElementById('main-container');
@@ -108,10 +111,16 @@ async function submitOrder ()
             <p>Order Total: ${response.total} ₴</p>
             `;
 
-            //history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
             //setTimeout(function() { alert("Alert! This is test"); }, 3000);
         }
     )
+    }
+    catch (submissionError)
+    {
+        alert("Error. Submission not successful");
+        window.location.hash = '#';
+    }
     //const content = await response.json();
     //console.log(content);
     //window.location.hash += `/${response.id}`;
