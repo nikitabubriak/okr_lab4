@@ -56,13 +56,9 @@ const generateID = () =>
 
 const orderStatus = (response) =>
 {
+    const rootNode = document.getElementById('main-container');
     console.log('1');
     console.log(response);
-    alert(`Order submission complete! ID ${response.id}`);
-    
-    console.log('2');
-    console.log(response);
-    const rootNode = document.getElementById('main-container');
     rootNode.innerHTML = 
     `
     <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
@@ -77,12 +73,9 @@ const orderStatus = (response) =>
     <p>${response.card}</p>
     <p>Order Total: ${response.total} ₴</p>
     `;
-    console.log('3');
-    console.log(response);
     cartClear();
     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-    
-    console.log('4');
+    console.log('2');
     console.log(response);
 }
 
