@@ -110,18 +110,15 @@ async function submitOrder ()
             <p>Order Total: ${response.total} ₴</p>
             `;
 
-            
+            //window.location.hash += `/${response.id}`;
             //setTimeout(function() { alert("Alert! This is test"); }, 3000);
         }
     )
-    .finally
-    (
-        () =>
-        {
-            cartClear();
-            history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-        }
-    )
+    .finally(() => 
+    {
+        cartClear();
+        history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+    });
     }
     catch (submissionError)
     {
