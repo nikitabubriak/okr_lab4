@@ -23,7 +23,7 @@ const view = (db) =>
     let orderPage = 
     `
     <div class = "order-container">
-        <form id = "order-form" onsubmit = "submitOrder()">
+        <form id = "order-form">
               <h3>Order information</h3>
 
               <label for = "name"> Full Name</label>
@@ -51,11 +51,14 @@ const view = (db) =>
               <input type = "text" required = "required" pattern = "[0-9]{16}" id = "card" name = "card" placeholder = "1111222233334444">
             
               <br><span class = "total-price">Total price: ${totalPrice} ₴</span><br>
-              <br><input type = "submit" value = "Continue" class = "buy-button">
+              <br>
+              <button class = "buy-button" id = "submit-order-btn">Submit Order</button>
+              
         </form>
     </div>
     `;
-
+    //onsubmit = "submitOrder()"
+    //<input type = "submit" value = "Continue" class = "buy-button">
     return orderPage;
 }
 

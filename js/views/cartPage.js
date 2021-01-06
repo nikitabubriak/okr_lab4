@@ -4,6 +4,11 @@ const view = (catalog) =>
     let cartProducts = [];
     let totalPrice = 0;
 
+    if (Object.keys(cart).length === 0)
+    {
+        window.location.hash = '#';
+    }
+
     catalog[1].map((product) =>
     {
         for (let id of Object.keys(cart))
@@ -18,12 +23,7 @@ const view = (catalog) =>
             }
         }
     });
-
-    if (cartProducts.length = 0)
-    {
-        window.location.hash = '#';
-    }
-
+    
     let cartPage = 
     `
     <div class = "products-container">
