@@ -27,7 +27,7 @@ const view = (db) =>
               <h3>Order information</h3>
 
               <label for = "name"> Full Name</label>
-              <input type = "text" pattern="[a-zA-Z]+{3,32}" required = "required" id = "name" name = "name" placeholder = "Name Example">
+              <input type = "text" pattern="[a-zA-Z]+" minlength="3" maxlength="32" required = "required" id = "name" name = "name" placeholder = "Name Example">
               
               <label for = "email"> Email</label>
               <input type = "email" required = "required" id = "email" name = "email" placeholder = "name@example.com">

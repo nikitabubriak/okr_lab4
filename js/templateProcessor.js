@@ -9,6 +9,10 @@ class TemplateProcessor
         {
             document.getElementById("add-to-cart-btn").addEventListener("click", cartAddProduct);
         }
+        if (viewName === 'homePage')
+        {
+            showSlides(slideIndex);
+        }
     }
 }
 

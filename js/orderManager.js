@@ -7,7 +7,7 @@ const countProducts = () =>
     if (!cart) cart = {};
     let count = 0;
     //count = Object.keys(cart).length;
-    for (let [key, value] of Object.entries(cart)) count += value;
+    for (let [key, value] of Object.entries(cart)) count += Number(value);
     document.getElementById("total-count").textContent = count;
 }
 
@@ -71,21 +71,47 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
-    let response = await fetch
+    const submitResponse = await fetch
     (
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
         {
             method: 'POST',
+            headers: 
+            {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(order)
         }
     )
-    //.then(response => response.json());
-    const orderResponse = await response.json();
-
-    cartClear();
-    history.replaceState(null, null, document.location.pathname + `/${orderResponse.id}`);
-    //window.location.hash += `/${response.id}`;
-
-    const rootNode = document.getElementById('main-container');
-    rootNode.innerHTML = `<p>Order ${orderResponse.id}</p>`;
+    .then(response => response.json())
+    .then
+    (
+        response => 
+        {
+            cartClear();
+    
+            const rootNode = document.getElementById('main-container');
+            rootNode.innerHTML = 
+            `
+            <p>Order ${response.id}</p>
+            <br><p>Details:</p><br>
+            <p>${response.name}</p>
+            <p>${response.email}</p>
+            <p>${response.phone}</p>
+            <p>${response.date}</p>
+            <p>${response.time}</p>
+            <p>${response.payment}</p>
+            <p>${response.card}</p>
+            <p>${response.name}</p>
+            <p>${response.total}</p>
+            `;
+            
+            history.replaceState(null, null, document.location.pathname + `${response.id}`);
+        }
+    )
+    //const content = await response.json();
+    //console.log(content);
+     //window.location.hash += `/${response.id}`;
+    
 }
