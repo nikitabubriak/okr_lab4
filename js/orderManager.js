@@ -73,6 +73,7 @@ async function orderStatus(response)
     `;
     cartClear();
     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+    return 1;
 }
 
 async function submitOrder ()
@@ -92,7 +93,7 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
-    
+    try {
     const submitResponse = await fetch
     (
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
@@ -110,10 +111,14 @@ async function submitOrder ()
     .then((data) => {
         console.log('Success:', data);
         orderStatus(data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
     });
+    // .catch((error) => {
+    //     console.error('Error:', error);
+    // });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
     //.then((response) => orderStatus(response))
 
     // .then
