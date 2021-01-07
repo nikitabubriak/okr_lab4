@@ -54,27 +54,27 @@ const generateID = () =>
     return id;
 }
 
-async function orderStatus(response) 
-{
-    const rootNode = document.getElementById('main-container');
-    rootNode.innerHTML =
-    `
-    <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-    <p>Order ${response.id}</p>
-    <br><p>Details:</p><br>
-    <p>${response.name}</p>
-    <p>${response.email}</p>
-    <p>${response.phone}</p>
-    <p>${response.date}</p>
-    <p>${response.time}</p>
-    <p>${response.payment}</p>
-    <p>${response.card}</p>
-    <p>Order Total: ${response.total} ₴</p>
-    `;
-    cartClear();
-    history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-    return 1;
-}
+// async function orderStatus(response) 
+// {
+//     const rootNode = document.getElementById('main-container');
+//     rootNode.innerHTML =
+//     `
+//     <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+//     <p>Order ${response.id}</p>
+//     <br><p>Details:</p><br>
+//     <p>${response.name}</p>
+//     <p>${response.email}</p>
+//     <p>${response.phone}</p>
+//     <p>${response.date}</p>
+//     <p>${response.time}</p>
+//     <p>${response.payment}</p>
+//     <p>${response.card}</p>
+//     <p>Order Total: ${response.total} ₴</p>
+//     `;
+//     cartClear();
+//     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+//     return 1;
+// }
 
 async function submitOrder ()
 {
@@ -93,31 +93,74 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
+    // try {
+    // const submitResponse = await fetch
+    // (
+    //     `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
+    //     {
+    //         method: 'POST',
+    //         headers: 
+    //         {
+                
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(order)
+    //     }
+    // )
+    // .then((response) => response.json())
+    // .then((data) => {
+    //     console.log('Success:', data);
+    //     orderStatus(data);
+    // });
+    
+    // } catch (error) {
+    //     console.error('Error:', error);
+    // }
+
     try {
-    const submitResponse = await fetch
-    (
-        `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
-        {
+    let submitResponse = await fetch
+    (`https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,{
             method: 'POST',
             headers: 
             {
-                // 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(order)
         }
-    )
-    .then((response) => response.json())
-    .then((data) => {
-        console.log('Success:', data);
-        orderStatus(data);
-    });
-    // .catch((error) => {
-    //     console.error('Error:', error);
-    // });
+    );
+    let response = await submitResponse.json();
+    console.log('Success:', response);
+    
+    const rootNode = document.getElementById('main-container');
+    rootNode.innerHTML =
+    `
+    <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+    <p>Order ${response.id}</p>
+    <br><p>Details:</p><br>
+    <p>${response.name}</p>
+    <p>${response.email}</p>
+    <p>${response.phone}</p>
+    <p>${response.date}</p>
+    <p>${response.time}</p>
+    <p>${response.payment}</p>
+    <p>${response.card}</p>
+    <p>Order Total: ${response.total} ₴</p>
+    `;
+
+    cartClear();
+    history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
+    
     } catch (error) {
         console.error('Error:', error);
     }
+
+    return response;
+
+    // 'Accept': 'application/json, text/plain, */*',
+    // .catch((error) => {
+    //     console.error('Error:', error);
+    // });
+    //return data
 
     //.then((response) => orderStatus(response))
 
