@@ -54,10 +54,10 @@ const generateID = () =>
     return id;
 }
 
-const orderStatus = (response) =>
+async function orderStatus(response) 
 {
     const rootNode = document.getElementById('main-container');
-    rootNode.innerHTML = 
+    rootNode.innerHTML =
     `
     <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
     <p>Order ${response.id}</p>
@@ -98,16 +98,23 @@ async function submitOrder ()
         `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
         {
             method: 'POST',
-            // headers: 
-            // {
-            //     'Accept': 'application/json, text/plain, */*',
-            //     'Content-Type': 'application/json'
-            // },
+            headers: 
+            {
+                // 'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(order)
         }
     )
-    .then(response => response.json())
-    .then(response => orderStatus(response))
+    .then((response) => response.json())
+    .then((data) => {
+        console.log('Success:', data);
+        orderStatus(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+    //.then((response) => orderStatus(response))
 
     // .then
     // (
