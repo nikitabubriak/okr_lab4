@@ -59,18 +59,21 @@ const orderStatus = (response) =>
     const rootNode = document.getElementById('main-container');
     rootNode.innerHTML =
     `
-    <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-    <p>Order ${response.id}</p>
-    <br><p>Details:</p><br>
-    <p>${response.name}</p>
-    <p>${response.email}</p>
-    <p>${response.phone}</p>
-    <p>${response.date}</p>
-    <p>${response.time}</p>
-    <p>${response.payment}</p>
-    <p>${response.card}</p>
-    <p>Order Total: ${response.total} ₴</p>
+    <div class = "product">
+        <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+        <p>Order ${response.id}</p>
+        <br><p>Details:</p><br>
+        <p>${response.name}</p>
+        <p>${response.email}</p>
+        <p>${response.phone}</p>
+        <p>${response.date}</p>
+        <p>${response.time}</p>
+        <p>${response.payment}</p>
+        <p>${response.card}</p>
+        <br><p>Order Total: ${response.total} ₴</p>
+    </div>
     `;
+
     cartClear();
     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
 }
@@ -78,6 +81,12 @@ const orderStatus = (response) =>
 async function submitOrder ()
 {
     const form = document.getElementById("order-form")
+    if (!form.checkValidity())
+    {
+        window.location.hash = '#order';
+        alert("Invalid form input. Please try again");
+    }
+    
     const order =
     {
         id: generateID(),
@@ -92,10 +101,10 @@ async function submitOrder ()
         total: JSON.parse(localStorage.getItem("totalPrice"))
     }
 
-    try {
-    await fetch
-    (
-        `https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
+    try 
+    {
+        await fetch
+        (`https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,
         {
             method: 'POST',
             headers: 
@@ -103,92 +112,21 @@ async function submitOrder ()
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(order)
-        }
-    )
-    .then((response) => response.json())
-    .then((data) => 
-    {
-        console.log('Success:', data);
-        orderStatus(data);
-    });
-    
-    } catch (error) 
+        })
+        .then((response) => 
+        {
+            response.json()
+        })
+        .then((data) => 
+        {
+            console.log('Success:', data);
+            orderStatus(data);
+        });
+    } 
+    catch (error) 
     {
         console.error('Error:', error);
+        alert(error);
+        window.location.hash = '#';
     }
-
-    // try {
-    // let submitResponse = await fetch
-    // (`https://my-json-server.typicode.com/nikitabubriak/okr_lab4/orders`,{
-    //         method: 'POST',
-    //         headers: 
-    //         {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(order)
-    //     }
-    // );
-    // let response = await submitResponse.json();
-    // console.log('Success:', response);
-    
-    // const rootNode = document.getElementById('main-container');
-    // rootNode.innerHTML =
-    // `
-    // <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-    // <p>Order ${response.id}</p>
-    // <br><p>Details:</p><br>
-    // <p>${response.name}</p>
-    // <p>${response.email}</p>
-    // <p>${response.phone}</p>
-    // <p>${response.date}</p>
-    // <p>${response.time}</p>
-    // <p>${response.payment}</p>
-    // <p>${response.card}</p>
-    // <p>Order Total: ${response.total} ₴</p>
-    // `;
-
-    // cartClear();
-    // history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
-    
-    // } catch (error) {
-    //     console.error('Error:', error);
-    // }
-
-    // 'Accept': 'application/json, text/plain, */*',
-    // .catch((error) => {
-    //     console.error('Error:', error);
-    // });
-    //return data
-
-    //.then((response) => orderStatus(response))
-
-    // .then
-    // (
-    //     (response) => 
-    //     {
-    //         orderStatus(response);
-            
-    //         window.location.hash += `/${response.id}`;
-    //         setTimeout(function() { alert("Alert! This is test"); }, 3000);
-    //     }
-    // )
-    // .finally(() => 
-    // {
-        
-    // });
-    
-    //try
-    //{
-    // catch (submissionError)
-    // {
-    //     alert("Error. Submission not successful");
-    //     window.location.hash = '#';
-    // }
-
-    //const content = await response.json();
-    //console.log(content);
-    //window.location.hash += `/${response.id}`;
-    
-    //window.location.hash += `/${response.id}`;
-    //setTimeout(function() { alert("Alert! This is test"); }, 3000);
 }
