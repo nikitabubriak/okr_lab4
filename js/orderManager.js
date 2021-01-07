@@ -1,12 +1,8 @@
-//cart
-//order
-
 const countProducts = () =>
 {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) cart = {};
     let count = 0;
-    //count = Object.keys(cart).length;
     for (let [key, value] of Object.entries(cart)) count += Number(value);
     document.getElementById("total-count").textContent = count;
 }
@@ -31,7 +27,6 @@ const cartRemoveProduct = (id) =>
     localStorage.setItem("cart", JSON.stringify(cart));
     window.dispatchEvent(new HashChangeEvent("hashchange"));
     countProducts();
-    // localStorage.removeItem(`"cart.${id}"`);
 }
 
 const cartClear = () =>
@@ -64,13 +59,13 @@ const orderStatus = (response) =>
             <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
             <p>Order ${response.id}</p>
             <br><p>Details:</p><br>
-            <span>${response.name}</span>
-            <span>${response.email}</span>
-            <span>${response.phone}</span>
-            <span>${response.date}</span>
-            <span>${response.time}</span>
-            <span>${response.payment}</span>
-            <span>${response.card}</span>
+            <br><span>${response.name}</span>
+            <br><span>${response.email}</span>
+            <br><span>${response.phone}</span>
+            <br><span>${response.date}</span>
+            <br><span>${response.time}</span>
+            <br><span>${response.payment}</span>
+            <br><span>${response.card}</span>
             <br><p>Order Total: ${response.total} ₴</p>
         </div>
     </div>

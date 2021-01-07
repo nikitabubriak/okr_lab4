@@ -1,23 +1,5 @@
-const urlParser = (db) =>
-{
-    let currentHash = window.location.hash.split('#')[1];
-
-    if (!currentHash.includes('/'))         return 'order';
-
-    // let subdir = currentHash.split('/')[1];
-
-    // for (let i = 0; i < catalog[0].length; i++)
-    // {
-    //     if (catalog[0][i].url === subdir)   return catalog[0][i];
-    //}
-}
-
 const view = (db) => 
 {
-    // let cart = []; 
-    // ... localStorage ...
-    // let page = urlParser(db);
-
     let totalPrice = JSON.parse(localStorage.getItem("totalPrice"));
 
     let orderPage = 
@@ -57,8 +39,7 @@ const view = (db) =>
         </form>
     </div>
     `;
-    //onsubmit = "submitOrder()"
-    //<input type = "submit" value = "Continue" class = "buy-button">
+    
     return orderPage;
 }
 

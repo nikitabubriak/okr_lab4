@@ -1,7 +1,6 @@
 import Router from './router.js';
 import Client from './client.js';
 import TemplateProcessor from './templateProcessor.js';
-// import ...
 
 let loader = document.getElementById("loader");
 const loadingToggle = () =>
@@ -42,4 +41,3 @@ const render = () =>
 
 render();
 window.addEventListener('hashchange', render);
-// window.onhashchange = render();

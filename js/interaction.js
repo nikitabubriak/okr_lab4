@@ -43,7 +43,5 @@ const showSlides = (n) =>
   dots[slideIndex].className += " active";
 }
 
-
-
 window.addEventListener("scroll", scrolling);
 document.getElementById("up-button").addEventListener("click", goUp);
