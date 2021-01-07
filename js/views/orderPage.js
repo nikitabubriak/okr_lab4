@@ -23,7 +23,7 @@ const view = (db) =>
     let orderPage = 
     `
     <div class = "order-container">
-        <form id = "order-form">
+        <form id = "order-form" onsubmit="return false;" method="post">
               <h3>Order information</h3>
 
               <label for = "name"> Full Name</label>
