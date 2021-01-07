@@ -85,6 +85,7 @@ async function submitOrder ()
     {
         window.location.hash = '#order';
         alert("Invalid form input. Please try again");
+        return;
     }
     
     const order =
@@ -113,20 +114,16 @@ async function submitOrder ()
             },
             body: JSON.stringify(order)
         })
-        .then((response) => 
-        {
-            response.json()
-        })
+        .then((response) => response.json())
         .then((data) => 
         {
             console.log('Success:', data);
             orderStatus(data);
         });
-    } 
-    catch (error) 
+    } catch (error) 
     {
         console.error('Error:', error);
         alert(error);
-        window.location.hash = '#';
+        window.location.hash = '#order';
     }
 }
