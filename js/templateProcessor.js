@@ -16,6 +16,11 @@ class TemplateProcessor
         if (viewName === 'orderPage')
         {
             document.getElementById("submit-order-btn").addEventListener("click", submitOrder);
+            let currentHash = window.location.hash.split('#')[1];
+            if (/*String(window.performance.getEntriesByType("navigation")[0].type) === "reload" && */currentHash.includes('/')) 
+            {
+                window.location.hash = '#catalog';
+            }
         }
         
     }

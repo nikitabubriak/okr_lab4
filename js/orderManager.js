@@ -60,20 +60,22 @@ const orderStatus = (response) =>
     rootNode.innerHTML =
     `
     <div class = "product">
-        <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
-        <p>Order ${response.id}</p>
-        <br><p>Details:</p><br>
-        <p>${response.name}</p>
-        <p>${response.email}</p>
-        <p>${response.phone}</p>
-        <p>${response.date}</p>
-        <p>${response.time}</p>
-        <p>${response.payment}</p>
-        <p>${response.card}</p>
-        <br><p>Order Total: ${response.total} ₴</p>
+        <div class = "order-status">
+            <p>Thank you for your purchase! This online shop was made for educational purposes only</p><br>
+            <p>Order ${response.id}</p>
+            <br><p>Details:</p><br>
+            <span>${response.name}</span>
+            <span>${response.email}</span>
+            <span>${response.phone}</span>
+            <span>${response.date}</span>
+            <span>${response.time}</span>
+            <span>${response.payment}</span>
+            <span>${response.card}</span>
+            <br><p>Order Total: ${response.total} ₴</p>
+        </div>
     </div>
     `;
-
+    
     cartClear();
     history.replaceState(null, null, document.location.pathname + `#order/${response.id}`);
 }
@@ -85,6 +87,12 @@ async function submitOrder ()
     {
         window.location.hash = '#order';
         alert("Invalid form input. Please try again");
+        return;
+    }
+    if (document.getElementById("total-count").textContent == 0)
+    {
+        window.location.hash = '#catalog';
+        alert("Your cart is empty. Please try again");
         return;
     }
     
