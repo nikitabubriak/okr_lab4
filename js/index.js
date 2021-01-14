@@ -71,7 +71,8 @@ const renderView = () =>
                 default:
                     break;
             }
-
+            
+            window.scrollTo(0,0);
             countProducts();
             loadingToggle();
         });
