@@ -48,7 +48,7 @@ const showSlides = (n) =>
   dots[slideIndex].className += " active";
 }
 
-export default {
+export {
     scrolling,
     goUp,
     moveSlide,

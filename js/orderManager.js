@@ -131,7 +131,7 @@ async function submitOrder ()
     }
 }
 
-export default {
+export {
     countProducts,
     cartAddProduct,
     cartRemoveProduct,
