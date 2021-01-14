@@ -40,8 +40,8 @@ const renderView = () =>
             {
                 case 'homePage':
                     showSlides(getSlideIndex());
-                    document.getElementById("prev").addEventListener("click", moveSlide(-1));
-                    document.getElementById("next").addEventListener("click", moveSlide(1));
+                    document.getElementById("prev").addEventListener("click", function () { moveSlide(-1); });
+                    document.getElementById("next").addEventListener("click", function () { moveSlide(1); });
 
                     let dotList = document.querySelectorAll(".dot");
                     for (let i = 0; i < dotList.length; i++)
