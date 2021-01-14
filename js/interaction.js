@@ -14,6 +14,11 @@ const goUp = () =>
 
 let slideIndex = 0;
 
+const getSlideIndex = () =>
+{
+  return slideIndex;
+}
+
 const moveSlide = (n) =>
 {
   showSlides(slideIndex += n);
@@ -43,5 +48,11 @@ const showSlides = (n) =>
   dots[slideIndex].className += " active";
 }
 
-window.addEventListener("scroll", scrolling);
-document.getElementById("up-button").addEventListener("click", goUp);
+export default {
+    scrolling,
+    goUp,
+    moveSlide,
+    setSlide,
+    showSlides,
+    getSlideIndex
+}

@@ -33,15 +33,15 @@ const view = (db) =>
                 <img src = "${db.offers[2].image}" alt = "${db.offers[2].name}">
             </a>
 
-            <a class = "prev" onclick = "moveSlide(-1)">&#10094;</a>
-            <a class = "next" onclick = "moveSlide(1)">&#10095;</a>
+            <a class = "prev" id = "prev">&#10094;</a>
+            <a class = "next" id = "next">&#10095;</a>
         </div>
     </div>
     <br>
     <div class = "dot-pagination">
-        <span class = "dot" onclick = "setSlide(0)"></span>
-        <span class = "dot" onclick = "setSlide(1)"></span>
-        <span class = "dot" onclick = "setSlide(2)"></span>
+        <span class = "dot"></span>
+        <span class = "dot"></span>
+        <span class = "dot"></span>
     </div>
     <script>showSlides(0);</script>
 

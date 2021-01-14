@@ -130,3 +130,10 @@ async function submitOrder ()
         window.location.hash = '#order';
     }
 }
+
+export default {
+    countProducts,
+    cartAddProduct,
+    cartRemoveProduct,
+    submitOrder
+}
